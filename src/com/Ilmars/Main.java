@@ -8,6 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Just new comment
+
         do {
 
             displayGuests();
