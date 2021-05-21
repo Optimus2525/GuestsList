@@ -1,5 +1,6 @@
 package com.Ilmars;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -7,8 +8,6 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        // Just new comment
 
         do {
 
@@ -96,9 +95,8 @@ public class Main {
             scan.nextLine();
             String newName = scan.nextLine();
 
-            for (int i = guests.length - 1; i > num - 1; i--) {
-                guests[i] = guests[i - 1];
-            }
+            IntStream.iterate(guests.length - 1, i -> i > num - 1, i -> i - 1)
+                    .forEach(i -> guests[i] = guests[i - 1]);
             guests[num - 1] = newName;
         } else {
             System.out.println("\nThis position is not accessible");
